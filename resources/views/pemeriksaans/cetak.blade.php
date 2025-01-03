@@ -145,14 +145,14 @@
         <div class="header">
             <h1>LOGBOOK KEGIATAN DAN CHECKLIST</h1>
             <h1>
-    KENDARAAN 
+    KENDARAAN
     @if($info->Kendaraan->nama_kendaraan == 'Nurse Tender')
         Pendukung
     @else
     {{$info->checklist->jenis_kendaraan}} @endif ARFF {{$info->Kendaraan->nama_kendaraan}}
 </h1>
 
-            
+
             @php
                 $tanggal = \Carbon\Carbon::parse($info->tanggal)->format('l/d-M-Y');
 
@@ -417,7 +417,7 @@
                 <div class="line">{{ $infoTambahan->danruPenerima }}</div>
             </div>
             <div class="signature">
-                <div>Mengetahui<br>ASST-MAN OF AS & RFF</div>
+                <div>Mengetahui<br>AS & RFF Dept.Head</div>
                 @if ($ttd->ttdAsstMan == null)
                     <div class="name-space"></div>
                 @else

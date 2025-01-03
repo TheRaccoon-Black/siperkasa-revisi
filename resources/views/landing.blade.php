@@ -448,65 +448,21 @@
             </div><!-- End Section Title -->
 
             <div class="container">
-
                 <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('/img/img1.jpg') }}" class="img-fluid" alt="">
+                    @foreach ($pejabat as $pejabat)
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 + 100 }}">
+                            <div class="team-member">
+                                <div class="member-img">
+                                    <img src="{{ asset($pejabat->photo) }}" class="img-fluid" alt="Foto {{ $pejabat->nama }}">
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ $pejabat->nama }}</h4>
+                                    <span>{{ $pejabat->jabatan }}</span>
+                                </div>
                             </div>
-                            <div class="member-info">
-                                <h4>Arie Sanjaya</h4>
-                                <span>Asstman AS & RFF</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('/img/img6.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>Deni</h4>
-                                <span>ARFF OPERATION CHIEF ALFA
-                                </span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('/img/img5.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>Nurhadi Kusuma</h4>
-                                <span>ARFF OPERATION CHIEF BRAVO
-                                </span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                        data-aos-delay="400">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('/img/img4.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>Andy</h4>
-                                <span>ARFF OPERATION CHIEF CHARLIE</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
+                        </div><!-- End Team Member -->
+                    @endforeach
                 </div>
-
             </div>
 
         </section><!-- /Team Section -->

@@ -97,53 +97,53 @@
                     </li>
                 @endif
                 <li data-sidebar="menu-item">
-                    <button data-sidebar="menu-button" data-collapse-toggle="pemeriksaan-menu"
-                        class="flex items-center p-2 w-full text-sidebar-accent-foreground rounded-lg dark:text-white hover:bg-sidebar-accent dark:hover:bg-gray-700 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 group">
-                        <div class="flex w-full">
-                            <div class="flex items-center justify-center text-sidebar-foreground">
-                                <svg width="24" height="24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round"
-                                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="size-5">
-                                    <path d='m9.75 11.742 1.039 1.181c.095.109.267.1.351-.016L13.25 10' />
-                                    <path d='M19 11.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0m-2.107 5.42 3.08 3.08' />
-                                </svg>
+                    <li data-sidebar="menu-item">
+                        <button data-sidebar="menu-button" data-collapse-toggle="pemeriksaan-menu"
+                            class="flex items-center p-2 w-full text-sidebar-accent-foreground rounded-lg dark:text-white hover:bg-sidebar-accent dark:hover:bg-gray-700 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 group">
+                            <div class="flex w-full">
+                                <div class="flex items-center justify-center text-sidebar-foreground">
+                                    <svg width="24" height="24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round"
+                                        stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="size-5">
+                                        <path d='m9.75 11.742 1.039 1.181c.095.109.267.1.351-.016L13.25 10' />
+                                        <path d='M19 11.5a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0m-2.107 5.42 3.08 3.08' />
+                                    </svg>
+                                </div>
+                                <span class="ms-3">Pemeriksaan</span>
                             </div>
-                            <span class="ms-3">Pemeriksaan</span>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m9 18 6-6-6-6"></path>
-                        </svg>
-                    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
 
-                    <ul id="pemeriksaan-menu"
-                        class="{{ request()->is('pemeriksaan*') ? '' : 'hidden' }}  my-2 space-y-2 ml-4 pl-4 border-l border-sidebar-border">
-                        <li>
-                            <a href="{{ route('pemeriksaan.create') }}?jenis=utama"
-                                class="{{ request()->is('pemeriksaan/utama') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">
-                                Kendaraan
-                                Utama
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('pemeriksaan.create') }}?jenis=pendukung"
-                                class="{{ request()->is('pemeriksaan/pendukung') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Kendaraan
-                                Pendukung</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('pemeriksaan.create') }}?jenis=nt"
-                                class="{{ request()->is('pemeriksaan/nt') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Kendaraan
-                                Pendukung NT</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('pemeriksaan.recap') }}"
-                                class="{{ request()->is('pemeriksaan/rekap') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Rekap</a>
-                        </li>
+                        <ul id="pemeriksaan-menu"
+                            class="{{ request()->is('pemeriksaan*') ? '' : 'hidden' }}  my-2 space-y-2 ml-4 pl-4 border-l border-sidebar-border">
+                            <li>
+                                <a href="{{ route('pemeriksaan.create') }}?jenis=utama"
+                                    class="{{ request()->is('pemeriksaan/utama') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">
+                                    Kendaraan
+                                    Utama
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('pemeriksaan.create') }}?jenis=pendukung"
+                                    class="{{ request()->is('pemeriksaan/pendukung') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Kendaraan
+                                    Pendukung</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('pemeriksaan.create') }}?jenis=nt"
+                                    class="{{ request()->is('pemeriksaan/nt') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Kendaraan
+                                    Pendukung NT</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('pemeriksaan.recap') }}"
+                                    class="{{ request()->is('pemeriksaan/rekap') ? 'bg-sidebar-accent dark:bg-gray-700 font-medium' : '' }} flex items-center w-full p-2 text-sidebar-accent-foreground transition duration-75 rounded-lg  group hover:bg-sidebar-accent dark:text-white dark:hover:bg-gray-700">Rekap</a>
+                            </li>
 
-                    </ul>
-                </li>
-                <li data-sidebar="menu-item">
+                        </ul>
+                    </li>
                     <a href="{{ route('view.showpdf') }}" data-sidebar="menu-button"
                         class="flex items-center p-2 text-sidebar-accent-foreground rounded-lg dark:text-white hover:bg-sidebar-accent dark:hover:bg-gray-700 group">
                         <div class="flex  items-center justify-center text-sidebar-foreground">
@@ -154,7 +154,21 @@
                                     d='M12 8.94V18m5-9.06V18M7 8.94V18m5.447-14.894 7.764 3.908c.944.475.608 1.907-.447 1.907H4.236c-1.055 0-1.391-1.432-.447-1.907l7.764-3.908a1 1 0 0 1 .894 0M19.5 21h-15a1.5 1.5 0 0 1 0-3h15a1.5 1.5 0 0 1 0 3' />
                             </svg>
                         </div>
-                        <span class="ms-3">Lihat SOP</span>
+                        <span class="ms-3">Lihat REGULASI</span>
+                    </a>
+                </li>
+                <li data-sidebar="menu-item">
+                    <a href="{{ route('pejabats.index') }}" data-sidebar="menu-button"
+                        class="flex items-center p-2 text-sidebar-accent-foreground rounded-lg dark:text-white hover:bg-sidebar-accent dark:hover:bg-gray-700 group">
+                        <div class="flex  items-center justify-center text-sidebar-foreground">
+                            <svg width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round"
+                                stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="size-5">
+                                <path
+                                    d='M12 9.8V20m0-10.2c0-1.704.107-3.584-1.638-4.473C9.72 5 8.88 5 7.2 5H4.6C3.364 5 3 5.437 3 6.6v8.8c0 .568-.036 1.195.546 1.491.214.109.493.109 1.052.109H7.43c2.377 0 3.26 1.036 4.569 3m0-10.2c0-1.704-.108-3.584 1.638-4.473C14.279 5 15.12 5 16.8 5h2.6c1.235 0 1.6.436 1.6 1.6v8.8c0 .567.035 1.195-.546 1.491-.213.109-.493.109-1.052.109h-2.833c-2.377 0-3.26 1.036-4.57 3' />
+                            </svg>
+                        </div>
+                        <span class="ms-3">Penjabat</span>
                     </a>
                 </li>
                 <li data-sidebar="menu-item">

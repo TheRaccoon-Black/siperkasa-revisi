@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Petugas;
 use App\Models\LoginLog;
 use App\Models\Kendaraan;
+use App\Models\Pejabat;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,9 +103,9 @@ class Controller extends BaseController
 
     // Menghitung jumlah kendaraan
     $kendaraan = Kendaraan::count();
-
+    $pejabat = Pejabat::all();
     // Mengirim data ke view
-    return view('landing', compact('jumlahPemeriksaan', 'jumlahPetugas', 'loginLog', 'kendaraan'));
+    return view('landing', compact('jumlahPemeriksaan','pejabat', 'jumlahPetugas', 'loginLog', 'kendaraan'));
 }
 
 }

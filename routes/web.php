@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PejabatController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginLogController;
@@ -62,6 +63,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/user', [PetugasController::class, 'storeUser'])->name('storeUser');
     });
 
+    Route::prefix('pejabats')->group(function () {
+        Route::get('/', [PejabatController::class, 'index'])->name('pejabats.index'); // Menampilkan daftar pejabat
+        Route::get('/create', [PejabatController::class, 'create'])->name('pejabats.create'); // Form tambah pejabat
+        Route::post('/', [PejabatController::class, 'store'])->name('pejabats.store'); // Menyimpan pejabat baru
+        Route::get('/{pejabat}', [PejabatController::class, 'show'])->name('pejabats.show'); // Menampilkan detail pejabat
+        Route::get('/{pejabat}/edit', [PejabatController::class, 'edit'])->name('pejabats.edit'); // Form edit pejabat
+        Route::put('/{pejabat}', [PejabatController::class, 'update'])->name('pejabats.update'); // Update pejabat
+        Route::delete('/{pejabat}', [PejabatController::class, 'destroy'])->name('pejabats.destroy'); // Hapus pejabat
+    });
     // --------------------------------------------------------------------------
     // Checklist Routes
     // --------------------------------------------------------------------------
