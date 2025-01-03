@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Geist";
+    src: url("./../fonts/GeistVF.woff") format("woff");
+}
+
+.scroll {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(233, 233, 233) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(203, 213, 225);
+    border-radius: 10px;
+}
