@@ -21,6 +21,7 @@ class DigitalSignatureController extends Controller
         'linkDanruPenerima' => Str::uuid(),
         'linkDanruPenyerah' => Str::uuid(),
         'linkAsstMan' => Str::uuid(),
+        'linkParafPenyerah' => Str::uuid(),
     ]);
 
 }

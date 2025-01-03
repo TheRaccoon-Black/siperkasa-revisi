@@ -32,11 +32,11 @@ class PemeriksaanController extends Controller
 
         // $kendaraan = Kendaraan::all();
         if ($request->query('jenis') == 'utama') {
-    $kendaraan = Kendaraan::whereIn('id', [1, 2])->get();
+    $kendaraan = Kendaraan::where('jenis','utama')->get();
 } elseif ($request->query('jenis') == 'nt') {
-    $kendaraan = Kendaraan::where('id', 4)->get();
+    $kendaraan = Kendaraan::where('jenis','khusus' )->get();
 } else {
-    $kendaraan = Kendaraan::whereIn('id', [3, 5])->get();
+    $kendaraan = Kendaraan::where('jenis','pendukung' )->get();
 }
 
 
@@ -117,6 +117,8 @@ class PemeriksaanController extends Controller
             'dinasPenerima' => $dinasP,
             'danruPenerima' => $request->danruPenerima,
             'danruPenyerah' => $request->danruPenyerah,
+            'komandanPenyerah' => $request->komandanPenyerah,
+            'komandanPenerima' => $request->komandanPenerima,
             'reguPenerima' => $request->reguPenerima,
             'Asstman' => $request->asstMan
         ]);

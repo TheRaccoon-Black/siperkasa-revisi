@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('dinasPenerima')->nullable();
             $table->string('danruPenerima')->nullable();
             $table->string('danruPenyerah')->nullable();
-            
+            $table->string('komandanPenyerah')->nullable();
+            $table->string('komandanPenerima')->nullable();
             $table->string('Asstman')->nullable();
             $table->timestamps();
         });

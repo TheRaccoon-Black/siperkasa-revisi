@@ -87,6 +87,7 @@ class KendaraanController extends Controller
             'nama_kendaraan' => 'required',
             'merk' => 'nullable',
             'tahun' => 'nullable|numeric',
+            'jenis' => 'nullable',
         ]);
 
         Kendaraan::create($request->all());
@@ -107,6 +108,7 @@ class KendaraanController extends Controller
             'nama_kendaraan' => 'required',
             'merk' => 'nullable',
             'tahun' => 'nullable|numeric',
+            'jenis' => 'nullable',
         ]);
 
         $kendaraan = Kendaraan::findOrFail($id);

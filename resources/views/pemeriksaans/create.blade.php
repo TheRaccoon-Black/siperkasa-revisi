@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-span-6">
                     <x-form-input name="danruPenerima" id="danruPenerima-add" required="true"
-                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penerima" />
+                        placeholder="Masukan Danru" label="Danru Penerima" />
                 </div>
 
                 <div class="col-span-6">
@@ -75,11 +75,21 @@
                 </div>
                 <div class="col-span-6">
                     <x-form-input name="danruPenyerah" id="danruPenyerah-add" required="true"
-                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penyerah" />
+                        placeholder="Masukan Danru" label="Danru Penyerah" />
                 </div>
                 <div class="col-span-6">
                     <x-form-input name="asstMan" id="asstMan-add" required="true" placeholder="Masukan Assmant"
                         label="Assistant Manager" />
+                </div>
+                <div class="col-span-6">
+
+                    <x-form-input name="komandanPenyerah" id="komandanPenyerah-add" required="true"
+                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penyerah" />
+                </div>
+                <div class="col-span-6">
+
+                    <x-form-input name="komandanPenerima" id="komandanPenerima-add" required="true"
+                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penerima" />
                 </div>
 
                 <div class="col-span-6">

@@ -17,9 +17,11 @@ return new class extends Migration
             $table->text('ttdDanruPenerima')->nullable();
             $table->text('ttdDanruPenyerah')->nullable();
             $table->text('ttdAsstMan')->nullable();
+            $table->text('parafPenyerah')->nullable();
             $table->string('linkDanruPenerima')->unique();
             $table->string('linkDanruPenyerah')->unique();
             $table->string('linkAsstMan')->unique();
+            $table->string('linkParafPenyerah')->unique();
             $table->timestamps();
         });
 

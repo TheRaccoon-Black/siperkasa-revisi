@@ -16,5 +16,7 @@ class InfoTambahan extends Model
         'danruPenerima',
         'danruPenyerah',
         'Asstman',
+        'komandanPenyerah',
+        'komandanPenerima',
     ];
 }

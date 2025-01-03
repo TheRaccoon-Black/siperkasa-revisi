@@ -146,7 +146,7 @@
             <h1>LOGBOOK KEGIATAN DAN CHECKLIST</h1>
             <h1>
     KENDARAAN
-    @if($info->Kendaraan->nama_kendaraan == 'Nurse Tender')
+    @if($info->Kendaraan->jenis == 'khusus')
         Pendukung
     @else
     {{$info->checklist->jenis_kendaraan}} @endif ARFF {{$info->Kendaraan->nama_kendaraan}}

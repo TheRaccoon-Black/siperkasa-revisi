@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('merk')->nullable();
             $table->string('tahun')->nullable();
             $table->string('nama_kendaraan');
+            $table->enum('jenis', ['utama', 'pendukung','khusus'])->nullable();
             $table->id();
             $table->timestamps();
         });

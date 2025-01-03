@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class DigitalSignature extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'idHasilPemeriksaan',
         'ttdDanruPenerima',
         'ttdDanruPenyerah',
+        'parafPenyerah',
         'ttdAsstMan',
         'linkDanruPenerima',
         'linkDanruPenyerah',
-        'linkAsstMan'
+        'linkAsstMan',
+        'linkParafPenyerah',
     ];
 
 }

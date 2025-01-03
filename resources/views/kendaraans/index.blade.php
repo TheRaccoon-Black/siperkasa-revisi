@@ -22,7 +22,7 @@
         </p>
         <form method="GET" action="{{ route('kendaraan.index') }}">
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-                <x-datatable :columns="['No', 'No Polisi', 'Nama Kendaraan', 'Merk', 'Tahun']" :rows="$kendaraans" :search="true" :fields="['no_polisi', 'nama_kendaraan', 'merk', 'tahun']" :colAction="['edit', 'delete']"
+                <x-datatable :columns="['No', 'No Polisi', 'Nama Kendaraan', 'Merk', 'Tahun', 'Jenis']" :rows="$kendaraans" :search="true" :fields="['no_polisi', 'nama_kendaraan', 'merk', 'tahun','jenis']" :colAction="['edit', 'delete']"
                     :rowCallback="$rowCallback">
                     @slot('addButton')
                         <div class="col-span-6">
@@ -108,11 +108,13 @@
                                 const inputNamaKendaraan = document.getElementById('nama_kendaraan-edit');
                                 const inputMerk = document.getElementById('merk-edit');
                                 const inputTahun = document.getElementById('tahun-edit');
+                                const inputJenis = document.getElementById('jenis-edit');
 
                                 inputNoPolisi.value = data.no_polisi;
                                 inputNamaKendaraan.value = data.nama_kendaraan;
                                 inputMerk.value = data.merk;
                                 inputTahun.value = data.tahun;
+                                inputJenis.value = data.jenis;
 
                                 form.action = url;
                             }
@@ -277,6 +279,16 @@
                         <x-form-input name="tahun" id="tahun-add" required="true" type="number" placeholder="xxxx"
                             label="Tahun" />
                     </div>
+                    <div class="col-span-2">
+                        <x-form-select name="jenis" id="jenis-add" required="true" label="Jenis Kendaraan">
+
+                                <option value="" disabled selected>Pilih Jenis Kendaraan</option>
+                                <option value="utama">Utama</option>
+                                <option value="pendukung">Pendukung</option>
+                                <option value="khusus">Khusus</option>
+
+                        </x-form-select>
+                    </div>
 
                 </div>
                 <x-button :type="'submit'" :color="'primary'" class="w-full">
@@ -318,6 +330,17 @@
                             label="Tahun" />
                     </div>
                 </div>
+
+                    <div class="col-span-2">
+                        <x-form-select name="jenis" id="jenis-edit" required="true" label="Jenis Kendaraan">
+
+                                <option value="" disabled selected>Pilih Jenis Kendaraan</option>
+                                <option value="utama">Utama</option>
+                                <option value="pendukung">Pendukung</option>
+                                <option value="khusus">Khusus</option>
+
+                        </x-form-select>
+                    </div>
                 <x-button :type="'submit'" :color="'primary'" class="w-full">
                     <svg class="me-1 -ms-1 w-5 h-5" width="24" height="24" fill="none" stroke="currentColor"
                         stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
