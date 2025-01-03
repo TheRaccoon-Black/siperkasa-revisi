@@ -43,7 +43,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/login-logs', [LoginLogController::class, 'index'])->name('login-logs.index');
 
     Route::get('/signatures/{id_hasil}/show', [DigitalSignatureController::class, 'showSignatureLinks'])->name('signatures.showLinks');
-
 });
 
 
@@ -69,8 +68,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/', [PejabatController::class, 'store'])->name('pejabats.store'); // Menyimpan pejabat baru
         Route::get('/{pejabat}', [PejabatController::class, 'show'])->name('pejabats.show'); // Menampilkan detail pejabat
         Route::get('/{pejabat}/edit', [PejabatController::class, 'edit'])->name('pejabats.edit'); // Form edit pejabat
-        Route::put('/{pejabat}', [PejabatController::class, 'update'])->name('pejabats.update'); // Update pejabat
-        Route::delete('/{pejabat}', [PejabatController::class, 'destroy'])->name('pejabats.destroy'); // Hapus pejabat
+        Route::put('/{id}', [PejabatController::class, 'update'])->name('pejabats.update'); // Update pejabat
+        Route::delete('/{id}', [PejabatController::class, 'destroy'])->name('pejabats.destroy'); // Hapus pejabat
     });
     // --------------------------------------------------------------------------
     // Checklist Routes

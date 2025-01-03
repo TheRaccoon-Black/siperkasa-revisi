@@ -165,8 +165,8 @@
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     {{-- <div class="col-span-2">
                         <x-form-select name="user_id" id="user_id-edit" required="true" label="Nama Petugas"> --}}
-                            {{-- <option value="" disabled selected>Pilih Nama Petugas</option> --}}
-                            {{-- @foreach ($users as $user)
+                    {{-- <option value="" disabled selected>Pilih Nama Petugas</option> --}}
+                    {{-- @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
 
