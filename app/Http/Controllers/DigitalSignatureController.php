@@ -14,17 +14,16 @@ class DigitalSignatureController extends Controller
 {
     // public function createSignatureLinks(Request $request)
     public function createSignatureLinks($id_hasil)
-{
-    $signature = DigitalSignature::create([
-        // 'idHasilPemeriksaan' => $request->idHasilPetugas,
-        'idHasilPemeriksaan' => $id_hasil,
-        'linkDanruPenerima' => Str::uuid(),
-        'linkDanruPenyerah' => Str::uuid(),
-        'linkAsstMan' => Str::uuid(),
-        'linkParafPenyerah' => Str::uuid(),
-    ]);
+    {
+        $signature = DigitalSignature::create([
+            'idHasilPemeriksaan' => $id_hasil,
+            'linkDanruPenerima' => Str::uuid(),
+            'linkDanruPenyerah' => Str::uuid(),
+            'linkAsstMan' => Str::uuid(),
+            'linkParafPenyerah' => Str::uuid(),
+        ]);
+    }
 
-}
 public function showSignatureLinks($id_hasil){
     $signature = DigitalSignature::where('idHasilPemeriksaan', $id_hasil)->firstOrFail();
     return view('signatures.links', [
@@ -34,10 +33,10 @@ public function showSignatureLinks($id_hasil){
 
 public function showSignatureForm($link)
 {
-
     $signature = DigitalSignature::where('linkDanruPenerima', $link)
         ->orWhere('linkDanruPenyerah', $link)
         ->orWhere('linkAsstMan', $link)
+        ->orWhere('linkParafPenyerah', $link)
         ->firstOrFail();
 
     $role = $this->getRoleByLink($signature, $link);
@@ -45,9 +44,10 @@ public function showSignatureForm($link)
     $info = InfoTambahan::where('id_hasil', $signature->idHasilPemeriksaan)->first();
 
     $name = match ($role) {
-        'Danru Penerima' => $info->danruPenerima,
-        'Danru Penyerah' => $info->danruPenyerah,
+        'Danru Penerima' => $info->komandanPenerima,
+        'Danru Penyerah' => $info->komandanPenyerah,
         'Asst Man' => $info->Asstman,
+        'Paraf Penyerah' => $info->danruPenyerah,
         default => '',
     };
 
@@ -67,6 +67,8 @@ private function isSignatureFilled($signature, $role)
         return true;
     } elseif ($role === 'Asst Man' && !empty($signature->ttdAsstMan)) {
         return true;
+    } elseif ($role === 'Paraf Penyerah' && !empty($signature->parafPenyerah)) {
+        return true;
     }
 
     return false;
@@ -80,6 +82,8 @@ private function getRoleByLink($signature, $link)
         return 'Danru Penyerah';
     } elseif ($signature->linkAsstMan === $link) {
         return 'Asst Man';
+    } elseif ($signature->linkParafPenyerah === $link) {
+        return 'Paraf Penyerah';
     }
     return null;
 }
@@ -93,6 +97,7 @@ public function saveSignature(Request $request, $link)
     $signature = DigitalSignature::where('linkDanruPenerima', $link)
         ->orWhere('linkDanruPenyerah', $link)
         ->orWhere('linkAsstMan', $link)
+        ->orWhere('linkParafPenyerah', $link)
         ->firstOrFail();
 
     $role = $this->getRoleByLink($signature, $link);
@@ -109,6 +114,8 @@ public function saveSignature(Request $request, $link)
         $signature->update(['ttdDanruPenyerah' => $filePath]);
     } elseif ($role === 'Asst Man') {
         $signature->update(['ttdAsstMan' => $filePath]);
+    } elseif ($role === 'Paraf Penyerah') {
+        $signature->update(['parafPenyerah' => $filePath]);
     }
 
     return redirect()->route('signatures.success', ['link' => $link]);
@@ -119,6 +126,7 @@ public function success($link)
     $signature = DigitalSignature::where('linkDanruPenerima', $link)
         ->orWhere('linkDanruPenyerah', $link)
         ->orWhere('linkAsstMan', $link)
+        ->orWhere('linkParafPenyerah', $link)
         ->firstOrFail();
 
     return view('signatures.success', compact('signature'));

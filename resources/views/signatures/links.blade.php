@@ -107,7 +107,7 @@
     <h1>Link Tanda Tangan</h1>
 
     <div>
-        <label for="linkDanruPenerima">Danru Penerima:</label>
+        <label for="linkDanruPenerima">Komandan Regu Penerima:</label>
         <input type="text" id="linkDanruPenerima" value="{{ url('signatures/' . $signature->linkDanruPenerima) }}"
             readonly>
         <button onclick="copyToClipboard('linkDanruPenerima')">Copy</button>
@@ -115,7 +115,7 @@
     </div>
 
     <div>
-        <label for="linkDanruPenyerah">Danru Penyerah:</label>
+        <label for="linkDanruPenyerah">Komandan Regu Penyerah:</label>
         <input type="text" id="linkDanruPenyerah" value="{{ url('signatures/' . $signature->linkDanruPenyerah) }}"
             readonly>
         <button onclick="copyToClipboard('linkDanruPenyerah')">Copy</button>
@@ -127,6 +127,12 @@
         <input type="text" id="linkAsstMan" value="{{ url('signatures/' . $signature->linkAsstMan) }}" readonly>
         <button onclick="copyToClipboard('linkAsstMan')">Copy</button>
         <button onclick="shareToWhatsApp('linkAsstMan')">Share to WhatsApp</button>
+    </div>
+    <div>
+        <label for="danruPenyerah">Danru Penyerah:</label>
+        <input type="text" id="linkParafPenyerah" value="{{ url('signatures/' . $signature->linkParafPenyerah) }}" readonly>
+        <button onclick="copyToClipboard('linkParafPenyerah')">Copy</button>
+        <button onclick="shareToWhatsApp('linkParafPenyerah')">Share to WhatsApp</button>
     </div>
 
     <script>

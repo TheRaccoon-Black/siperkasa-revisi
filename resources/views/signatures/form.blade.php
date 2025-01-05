@@ -122,11 +122,11 @@
     <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; width: 100%;">
         <div class="signature-container">
             <h1>Tanda Tangan Digital</h1>
-            <p><strong>Role:</strong> {{ $role }}</p>
+            <p><strong>Role:</strong> @php if($role == 'Danru Penerima') echo 'Komandan Regu Penerima';else if ($role == 'Danru Penyerah') echo 'Komandan Regu Penyerah';else if ($role == 'Asst Man') echo 'Asst Man';else if ($role == 'Paraf Penyerah') echo 'Danru Penyerah'; @endphp</p>
             <p>Harus diisi Oleh: <strong>{{ $name }}</strong></p>
 
             @if (isset($isFilled) && $isFilled)
-                <p>Tanda tangan sudah diisi oleh {{ $role }}.</p>
+                <p>Tanda tangan sudah diisi oleh : @php if($role == 'Danru Penerima') echo 'Komandan Regu Penerima';else if ($role == 'Danru Penyerah') echo 'Komandan Regu Penyerah';else if ($role == 'Asst Man') echo 'Asst Man';else if ($role == 'Paraf Penyerah') echo 'Danru Penyerah'; @endphp .</p>
             @else
                 <form id="signature-form" method="POST"
                     action="{{ route('signatures.save', ['link' => request()->route('link')]) }}">

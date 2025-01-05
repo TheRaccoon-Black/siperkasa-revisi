@@ -233,7 +233,10 @@
                     <th>Regu/Dinas: {{ ucfirst($infoTambahan->reguPenerima) }}. </th>
                 </tr>
                 <tr>
-                    <th>Danru: {{ $infoTambahan->danruPenyerah }}</th>
+                    <th>Danru: {{ $infoTambahan->danruPenyerah }}  @if ($ttd->parafPenyerah == null)
+                    @else
+                        <img style="position: absolute;padding-top:-50px;margin-top:-15px; margin-left: 20px; width: 40px;height: 40px;" src="{{ asset($ttd->parafPenyerah) }}" alt=""></th>
+                    @endif
                     <th>Danru: {{ $infoTambahan->danruPenerima }}</th>
                 </tr>
                 <tr>
@@ -407,21 +410,21 @@
         </div> --}}
         <div class="footer">
             <div class="signature">
-                <div>Menerima<br>Komandan Jaga {{ $infoTambahan->reguPenerima }}</div>
+                <div>Menerima<br>Komandan Jaga {{ ucfirst($infoTambahan->reguPenerima) }}</div>
                 @if ($ttd->ttdDanruPenerima == null)
                     <div class="name-space"></div>
                 @else
-                    <img src="{{ asset($ttd->ttdDanruPenerima) }}" alt="">
+                    <img src="{{ asset($ttd->ttdDanruPenerima) }}" alt="ttd komandan jaga penyerah">
                     <div class="name-space"></div>
                 @endif
-                <div class="line">{{ $infoTambahan->danruPenerima }}</div>
+                <div class="line">{{ $infoTambahan->komandanPenerima }}</div>
             </div>
             <div class="signature">
                 <div>Mengetahui<br>AS & RFF Dept.Head</div>
                 @if ($ttd->ttdAsstMan == null)
                     <div class="name-space"></div>
                 @else
-                    <img src="{{ asset($ttd->ttdAsstMan) }}" alt="">
+                    <img src="{{ asset($ttd->ttdAsstMan) }}" alt="ttd asst man">
                     <div class="name-space"></div>
                 @endif
                 <div class="line">{{ $infoTambahan->Asstman }}</div>
@@ -431,10 +434,10 @@
                 @if ($ttd->ttdDanruPenyerah == null)
                     <div class="name-space"></div>
                 @else
-                    <img src="{{ asset($ttd->ttdDanruPenyerah) }}" alt="">
+                    <img src="{{ asset($ttd->ttdDanruPenyerah) }}" alt=" ttd komandan jaga penyerah">
                     <div class="name-space"></div>
                 @endif
-                <div class="line">{{ $infoTambahan->danruPenyerah }}</div>
+                <div class="line">{{ $infoTambahan->komandanPenyerah }}</div>
             </div>
         </div>
     </div>
