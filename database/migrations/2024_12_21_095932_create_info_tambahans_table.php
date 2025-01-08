@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_hasil');
             $table->string('reguPenerima')->nullable();
+            $table->string('reguJagaPenerima')->nullable();
             $table->string('dinasPenerima')->nullable();
             $table->string('danruPenerima')->nullable();
             $table->string('danruPenyerah')->nullable();

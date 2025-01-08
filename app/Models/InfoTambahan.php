@@ -12,6 +12,7 @@ class InfoTambahan extends Model
     protected $fillable = [
         'id_hasil',
         'reguPenerima',
+        'reguJagaPenerima',
         'dinasPenerima',
         'danruPenerima',
         'danruPenyerah',

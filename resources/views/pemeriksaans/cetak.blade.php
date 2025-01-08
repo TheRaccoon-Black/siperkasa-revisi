@@ -410,7 +410,7 @@
         </div> --}}
         <div class="footer">
             <div class="signature">
-                <div>Menerima<br>Komandan Jaga {{ ucfirst($infoTambahan->reguPenerima) }}</div>
+                <div>Menerima<br>Komandan Jaga {{ ucfirst($infoTambahan->reguJagaPenerima) }}</div>
                 @if ($ttd->ttdDanruPenerima == null)
                     <div class="name-space"></div>
                 @else

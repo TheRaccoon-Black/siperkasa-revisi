@@ -84,12 +84,12 @@
                 <div class="col-span-6">
 
                     <x-form-input name="komandanPenyerah" id="komandanPenyerah-add" required="true"
-                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penyerah" />
+                        placeholder="Masukan Komandan Regu" label="Komandan jaga Penyerah" />
                 </div>
                 <div class="col-span-6">
 
                     <x-form-input name="komandanPenerima" id="komandanPenerima-add" required="true"
-                        placeholder="Masukan Komandan Regu" label="Komandan Regu Penerima" />
+                        placeholder="Masukan Komandan Regu" label="Komandan jaga Penerima" />
                 </div>
 
                 <div class="col-span-6">
@@ -100,7 +100,14 @@
                     </x-form-select>
                 </div>
                 <div class="col-span-6">
-                    <x-form-select name="reguPenerima" id="reguPenerima-add" required="true" label="Regu Penerima">
+                    <x-form-select name="reguPenerima" id="reguPenerima-add" required="true" label="Regu Danru Penerima">
+                        <option value="A">Regu A</option>
+                        <option value="B">Regu B</option>
+                        <option value="c">Regu C</option>
+                    </x-form-select>
+                </div>
+                <div class="col-span-6">
+                    <x-form-select name="reguJagaPenerima" id="reguJagaPenerima-add" required="true" label="Regu Jaga Penerima">
                         <option value="A">Regu A</option>
                         <option value="B">Regu B</option>
                         <option value="c">Regu C</option>

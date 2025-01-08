@@ -101,6 +101,7 @@ Route::get('pemeriksaan/cetak/{id_hasil}', [PemeriksaanController::class, 'cetak
 Route::middleware(['auth', 'role:admin|petugas'])->group(function () {
     Route::prefix("pemeriksaan")->name("pemeriksaan.")->group(function () {
         Route::get("/", [PemeriksaanController::class, "index"])->name("index");
+        Route::delete("/destroy/{id}", [PemeriksaanController::class, "destroy"])->name("destroy");
         Route::get('/create', [PemeriksaanController::class, 'create'])->name('create');
         Route::post('/store', [PemeriksaanController::class, 'store'])->name('store');
         Route::get('/rekap', [PemeriksaanController::class, 'recap'])->name('recap');

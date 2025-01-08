@@ -62,6 +62,7 @@ class PemeriksaanController extends Controller
             'danruPenyerah' => 'required|string', //info_tambahan
             'reguPenerima' => 'required|string', //info_tambahan
             'asstMan' => 'required|string', //info_tambahan
+            'reguJagaPenerima' => 'required|string', //info_tambahan
             'checklists' => 'required|array',
             'checklist.*.id_checklist' => 'required|exists:checklists,id',
             'checklist.*.kondisi' => 'required|in:baik,cukup,rusak,tdk ada',
@@ -120,6 +121,7 @@ class PemeriksaanController extends Controller
             'komandanPenyerah' => $request->komandanPenyerah,
             'komandanPenerima' => $request->komandanPenerima,
             'reguPenerima' => $request->reguPenerima,
+            'reguJagaPenerima' => $request->reguJagaPenerima,
             'Asstman' => $request->asstMan
         ]);
         $signatureController = new DigitalSignatureController();
@@ -290,6 +292,21 @@ class PemeriksaanController extends Controller
         return view('pemeriksaans.recap', compact('pemeriksaans', 'groupedDinas', 'filterCount', 'sortable', 'rowCallback'));
     }
 
+
+    public function destroy($id)
+    {
+
+    // Cari pemeriksaan berdasarkan id_hasil
+    $pemeriksaan = Pemeriksaan::where('id_hasil', $id)->first();
+dd($id);
+    // if ($pemeriksaan) {
+    //     $pemeriksaan->delete();
+    //     return redirect()->route('pemeriksaan.recap')->with('success', 'Pemeriksaan berhasil dihapus.');
+    // } else {
+    //     return redirect()->route('pemeriksaan.recap')->with('error', 'Pemeriksaan tidak ditemukan.');
+    // }
+    //     // return redirect()->route('pemeriksaan.recap')->with('success', 'data pemeriksaan berhasil dihapus.');
+    }
 
 
     // public function arsip($id_hasil)
