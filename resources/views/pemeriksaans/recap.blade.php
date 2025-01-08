@@ -24,7 +24,7 @@
         </p>
         <form method="GET" action="{{ route('pemeriksaan.recap') }}">
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-                <x-datatable :columns="['No', 'Keterangan Hasil', 'Tanggal', 'Dinas', 'Petugas', 'Kendaraan']" :rows="$pemeriksaans" :search="true" :fields="['id_hasil', 'tanggal', 'dinas', 'id_petugas', 'id_kendaraan']" :colAction="['detail']"
+                <x-datatable :columns="['No', 'Keterangan Hasil', 'Tanggal', 'Dinas', 'Petugas', 'Kendaraan']" :rows="$pemeriksaans" :search="true" :fields="['id_hasil', 'tanggal', 'dinas', 'id_petugas', 'id_kendaraan']" :colAction="['detail', 'delete']"
                     :rowCallback="$rowCallback" :detailRoute="'pemeriksaan.cetak'" :detailId="'id_hasil'">
 
                     @slot('button')
@@ -118,6 +118,18 @@
                                 @endif
                             </x-button>
                         </div>
+                    @endslot
+
+                    @slot('deleteScript')
+                        <script>
+                            function defaultDeleteFunction(data) {
+                                const url = "{{ route('pemeriksaan.destroy', ['id' => '__id__']) }}".replace('__id__', data.id);
+
+                                const form = document.getElementById('form-delete');
+
+                                form.action = url;
+                            }
+                        </script>
                     @endslot
 
                 </x-datatable>
@@ -283,6 +295,35 @@
             </div>
         </form>
     </div>
+
+
+    <form action="{{ route('pemeriksaan.destroy', 0) }}" method="post" id="form-delete">
+        @csrf
+        @method('DELETE')
+        <x-modal :id="'modal-delete'" :title="'Hapus Petugas'">
+            @slot('form')
+                <div class="grid gap-4 mt-4 mb-8 grid-cols-2">
+                    <div class="col-span-2 text-muted-foreground text-center">Apakah anda yakin ingin menghapus
+                        Rekap
+                        ini?</div>
+                </div>
+                <div class="flex gap-4">
+                    <x-button :type="'button'" :color="'secondary'" class="w-full" data-modal-toggle="modal-delete">
+                        Tidak
+                    </x-button>
+                    <x-button :type="'submit'" :color="'danger'" class="w-full">
+                        <svg class="me-1 -ms-1 w-5 h-5" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                            xmlns="http://www.w3.org/2000/svg" class="size-5">
+                            <path
+                                d='m18 7-.886 10.342c-.111 1.29-.166 1.936-.453 2.424a2.5 2.5 0 0 1-1.078.99c-.511.244-1.16.244-2.455.244h-2.256c-1.296 0-1.944 0-2.455-.244a2.5 2.5 0 0 1-1.078-.99c-.287-.488-.342-1.134-.453-2.424L6 7m-1.5-.5h4.615m0 0 .386-2.672c.112-.486.516-.828.98-.828h3.038c.464 0 .867.342.98.828l.386 2.672m-5.77 0h5.77m0 0H19.5' />
+                        </svg>
+                        Hapus Rekap
+                    </x-button>
+                </div>
+            @endslot
+        </x-modal>
+    </form>
 @endsection
 
 @push('scripts')
