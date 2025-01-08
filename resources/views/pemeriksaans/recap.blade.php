@@ -21,10 +21,12 @@
             Rekap pemeriksaan ini menampilkan seluruh pemeriksaan yang terdaftar di dalam sistem.<br
                 class="hidden sm:block">
             Anda dapat melihat detail pemeriksaan disini.
+            <pre>{{ json_encode($pemeriksaans, JSON_PRETTY_PRINT) }}</pre>
+
         </p>
         <form method="GET" action="{{ route('pemeriksaan.recap') }}">
             <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-                <x-datatable :columns="['No', 'Keterangan Hasil', 'Tanggal', 'Dinas', 'Petugas', 'Kendaraan']" :rows="$pemeriksaans" :search="true" :fields="['id_hasil', 'tanggal', 'dinas', 'id_petugas', 'id_kendaraan']" :colAction="['detail', 'delete']"
+                <x-datatable :columns="['No', 'Keterangan Hasil', 'Tanggal', 'Dinas', 'Petugas', 'Kendaraan']" :rows="$pemeriksaans" :search="true" :fields="['id_hasil', 'tanggal', 'dinas', 'id_petugas', 'id_kendaraan']" :colAction="['detail', 'delete1']"
                     :rowCallback="$rowCallback" :detailRoute="'pemeriksaan.cetak'" :detailId="'id_hasil'">
 
                     @slot('button')
@@ -121,15 +123,25 @@
                     @endslot
 
                     @slot('deleteScript')
-                        <script>
-                            function defaultDeleteFunction(data) {
-                                const url = "{{ route('pemeriksaan.destroy', ['id' => '__id__']) }}".replace('__id__', data.id);
+                    <script>
+                        function defaultDeleteFunction(button) {
+                            // Ambil ID dari tombol yang diklik
+                            const idHasil = button.getAttribute('data-id');
+                            console.log(idHasil);
 
-                                const form = document.getElementById('form-delete');
 
-                                form.action = url;
-                            }
-                        </script>
+                            const url = "{{ route('pemeriksaan.destroy', ['id' => '__id__']) }}".replace('__id__', idHasil);
+
+                            // Tentukan form penghapusan
+                            const form = document.getElementById('form-delete');
+
+                            // Set action form dengan URL penghapusan
+                            form.action = url;
+
+                            
+                        }
+                    </script>
+
                     @endslot
 
                 </x-datatable>

@@ -294,19 +294,26 @@ class PemeriksaanController extends Controller
 
 
     public function destroy($id)
-    {
-
+{
     // Cari pemeriksaan berdasarkan id_hasil
     $pemeriksaan = Pemeriksaan::where('id_hasil', $id)->first();
-dd($id);
-    // if ($pemeriksaan) {
-    //     $pemeriksaan->delete();
-    //     return redirect()->route('pemeriksaan.recap')->with('success', 'Pemeriksaan berhasil dihapus.');
-    // } else {
-    //     return redirect()->route('pemeriksaan.recap')->with('error', 'Pemeriksaan tidak ditemukan.');
-    // }
-    //     // return redirect()->route('pemeriksaan.recap')->with('success', 'data pemeriksaan berhasil dihapus.');
+
+    // Cek apakah pemeriksaan ditemukan
+    if (!$pemeriksaan) {
+        return redirect()->route('pemeriksaan.recap')->with('error', 'Pemeriksaan tidak ditemukan.');
     }
+
+    // Menghapus semua pemeriksaan yang memiliki id_hasil yang sama
+    $deletedRows = Pemeriksaan::where('id_hasil', $id)->delete() && DigitalSignature::where('idHasilPemeriksaan', $id)->delete() && InfoTambahan::where('id_hasil', $id)->delete();
+
+    // Cek jika penghapusan berhasil
+    if ($deletedRows) {
+        return redirect()->route('pemeriksaan.recap')->with('success', 'Pemeriksaan berhasil dihapus.');
+    } else {
+        return redirect()->route('pemeriksaan.recap')->with('error', 'Terjadi kesalahan saat menghapus pemeriksaan.');
+    }
+}
+
 
 
     // public function arsip($id_hasil)
